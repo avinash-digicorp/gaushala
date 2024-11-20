@@ -1,0 +1,32 @@
+{
+  "common": {},
+  "header": {
+    "home": "Home",
+    "notification": "Notification",
+    "profile": "Profile"
+  },
+  "home": {
+    "start_location": "Start Location",
+    "end_location": "End Location",
+    "trip_date": "Trip Date",
+    "trip_time": "Trip Time"
+  },
+  "profile": {
+    "name": "Name",
+    "mobile": "Mobile",
+    "products": "Products",
+    "email": "Email",
+    "toggle_language": "Toggle Language"
+  },
+  "button": {
+    "continue": "Continue",
+    "logout": "Logout",
+    "login": "Login",
+    "cancel": "Cancel",
+    "whether_for_trip": "Check Whether For Trip"
+  },
+  "weather": {
+    "high": "High",
+    "low": "Low"
+  }
+}
