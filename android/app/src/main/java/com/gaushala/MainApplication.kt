@@ -1,4 +1,4 @@
-package com.gaushala
+package com.gaushala.com
 
 import android.app.Application
 import com.facebook.react.PackageList

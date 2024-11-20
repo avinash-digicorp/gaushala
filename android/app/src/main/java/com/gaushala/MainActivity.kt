@@ -1,4 +1,4 @@
-package com.gaushala
+package com.gaushala.com
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
