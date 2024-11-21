@@ -11,7 +11,13 @@ const useLoginContainer = () => {
   const {showToast} = useToast();
   const [mobile, setMobile] = useState<string>('');
   useEffect(() => {
-    GoogleSignin.configure({});
+    GoogleSignin.configure({
+      webClientId:
+        '1076961030660-9b8r8q0n0h0h2h2a6q9n1t3r9t2r9u8.apps.googleusercontent.com',
+      offlineAccess: true,
+      iosClientId:
+        '1076961030660-9b8r8q0n0h0h2h2a6q9n1t3r9t2r9u8.apps.googleusercontent.com',
+    });
   }, []);
 
   const loginSuccess = () => {

@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {
+  Alert,
   Button,
   Image,
   PermissionsAndroid,
@@ -20,9 +21,22 @@ import {isAndroidPlatform, isIosPlatform} from 'utils';
 import {PERMISSIONS, request} from 'react-native-permissions';
 import AddButton from './partials/add-button';
 import {routes} from 'navigation';
+import {logout} from 'store/auth/slice';
+import {useDispatch} from 'react-redux';
 
 export default ({navigation}) => {
   const [images, setImages] = useState([]);
+  const dispatch = useDispatch();
+  const onLogout = () => {
+    Alert.alert('Logout', 'Are you sure you want to logout?', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => dispatch(logout())},
+    ]);
+  };
   const onAdd = () => {
     navigation.navigate(routes.CHAT);
   };
@@ -160,6 +174,7 @@ export default ({navigation}) => {
               />
             </View>
           </ViewShot>
+          <Button onPress={onLogout} title="Logout" />
           <Button onPress={download} title="Download" />
           <Button title="Share Screenshot" onPress={share} />
           <Button

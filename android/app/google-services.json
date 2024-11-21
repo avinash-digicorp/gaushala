@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "814919521725",
+    "project_id": "gaushala-1af9d",
+    "storage_bucket": "gaushala-1af9d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814919521725:android:051894a0d81053baeeeed4",
+        "android_client_info": {
+          "package_name": "com.gaushala.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814919521725-7gv4u2a14cmuhoi9rcjf841tnobj3vjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjCxHh859G3c7Gaoz0ig15MI0VET9LM9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814919521725-7gv4u2a14cmuhoi9rcjf841tnobj3vjr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "814919521725-ee606n1j4rdcflrfhlo0cruk6jtup5th.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.gaushala.com"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

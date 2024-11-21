@@ -11,16 +11,8 @@ const icons = {
 };
 const TabButton = props => {
   const {focused, routeName} = props;
-  const isWeatherScreen = routeName === routes.MAIN_WEATHER;
-  const icon = icons[routeName] ?? ('home' as AnimatedIconType);
-  return (
-    <AnimatedIcon
-      loop={isWeatherScreen}
-      autoPlay={isWeatherScreen || focused}
-      name={icon}
-      style={[styles.icon, isWeatherScreen && styles.iconWeather]}
-    />
-  );
+  const icon = icons[routeName] as AnimatedIconType;
+  return <AnimatedIcon autoPlay={focused} name={icon} style={[styles.icon]} />;
 };
 
 const styles = StyleSheet.create({

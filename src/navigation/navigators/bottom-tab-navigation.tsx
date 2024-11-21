@@ -32,7 +32,7 @@ export const BottomTabs = () => (
       whenActiveShow: TabElementDisplayOptions.ICON_ONLY,
     }}
     screenOptions={{headerShown: false}}
-    initialRouteName={routes.MAIN_WEATHER}
+    initialRouteName={routes.MAIN_HOME}
     lazy={true}
     backBehavior="history">
     <TabStack.Screen
@@ -45,16 +45,7 @@ export const BottomTabs = () => (
       }}
     />
     <TabStack.Screen
-      name={routes.MAIN_WEATHER}
-      component={Weather}
-      options={{
-        tabBarIcon: props => (
-          <TabButton {...props} routeName={routes.MAIN_WEATHER} />
-        ),
-      }}
-    />
-    <TabStack.Screen
-      name={routes.MAIN_TEST}
+      name={routes.MAIN_SETTINGS}
       component={Test}
       options={{
         tabBarIcon: props => (

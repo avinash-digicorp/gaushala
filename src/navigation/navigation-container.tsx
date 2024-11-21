@@ -10,7 +10,7 @@ import {fetchCurrentLocation, fetchWeather} from 'store/common/slice';
 
 export const useAppNavigationContainer = () => {
   useNotification();
-  const {isLoggedIn} = useSelector((state: RootState) => state.auth);
+  const {isLoggedIn, user} = useSelector((state: RootState) => state.auth);
   const {location} = useSelector((state: RootState) => state.common);
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
