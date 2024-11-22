@@ -15,13 +15,13 @@ export const ApplicationNavigator = () => {
   const {style, isLoggedIn, theme} = useAppNavigationContainer();
 
   return (
-    <Animated.View style={style} className="w-full flex-1 h-full">
-      <NavigationContainer theme={theme} ref={navigationRef}>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-          {isLoggedIn ? BottomTabNavigator : AuthNavigator}
-          {CommonNavigator}
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Animated.View>
+    // <Animated.View style={style} className="w-full flex-1 h-full">
+    <NavigationContainer theme={theme} ref={navigationRef}>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        {isLoggedIn ? BottomTabNavigator : AuthNavigator}
+        {CommonNavigator}
+      </Stack.Navigator>
+    </NavigationContainer>
+    // </Animated.View>
   );
 };

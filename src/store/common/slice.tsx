@@ -8,6 +8,7 @@ import {
 } from 'utils/location';
 import {LocationTypes} from 'store/common-interface';
 import {hasLength} from 'utils';
+import {DASHBOARD_ITEMS} from './helpers';
 
 const initialState: IInitialCommonStateProps = {
   location: null,
@@ -15,6 +16,7 @@ const initialState: IInitialCommonStateProps = {
   weather: null,
   unit: 'metric',
   todo: [],
+  dashboardItems: DASHBOARD_ITEMS,
 };
 
 export const searchLocation = createAsyncThunk(

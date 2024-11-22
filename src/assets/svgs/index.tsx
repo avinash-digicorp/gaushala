@@ -7,3 +7,16 @@ export * from './copy-icon';
 export * from './emoji-icon';
 export * from './sent-icon';
 export * from './phone-icon';
+export * from './grid-icons';
+
+export * from './nandi-service-icon.tsx';
+export * from './livestock-icon.tsx';
+export * from './death-icon.tsx';
+export * from './birth-icon.tsx';
+export * from './milk-production-icon.tsx';
+export * from './falya-record-icon.tsx';
+export * from './illness-record-icon.tsx';
+export * from './worm-vaccination-icon.tsx';
+export * from './laboratory-icon.tsx';
+export * from './vaccination-icon.tsx';
+export * from './breeding-icon.tsx';

@@ -1,12 +1,12 @@
 import {StyleProp, ViewStyle} from 'react-native';
 import {IProps as ButtonViewProps} from '@/components/button-view/type.d';
-import {ASSET_SVGS} from './svg-icons';
+import {svgType} from './svg-icons';
 
 export interface AssetSvgProps {
   /**
    * Name of SVG icon.
    */
-  name?: keyof typeof ASSET_SVGS;
+  name?: svgType;
 
   preserveAspectRatio?: string;
 

@@ -1,0 +1,39 @@
+{
+  "common": {},
+  "header": {
+    "home": "",
+    "notification": "Notification",
+    "profile": "Profile"
+  },
+  "home": {
+    "nandiService": "नंदी सेवा",
+    "livestock": "पशुधन",
+    "death": "मृत्यु",
+    "birth": "जन्म",
+    "milkProduction": "दूध उत्पादन",
+    "falyaRecord": "फल्या रिकॉर्ड",
+    "illnessRecord": "बीमारी रिकॉर्ड",
+    "wormVaccination": "कृमि का टीकाकरण",
+    "laboratory": "प्रयोगशाला",
+    "vaccination": "टीकाकरण",
+    "breeding": "प्रजनन"
+  },
+  "profile": {
+    "name": "Name",
+    "mobile": "Mobile",
+    "products": "Products",
+    "email": "Email",
+    "toggle_language": "Toggle Language"
+  },
+  "button": {
+    "continue": "Continue",
+    "logout": "Logout",
+    "login": "Login",
+    "cancel": "Cancel",
+    "whether_for_trip": "Check Whether For Trip"
+  },
+  "weather": {
+    "high": "High",
+    "low": "Low"
+  }
+}

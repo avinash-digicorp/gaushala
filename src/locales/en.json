@@ -6,10 +6,17 @@
     "profile": "Profile"
   },
   "home": {
-    "start_location": "Start Location",
-    "end_location": "End Location",
-    "trip_date": "Trip Date",
-    "trip_time": "Trip Time"
+    "nandiService": "Nandi Service",
+    "livestock": "Livestock",
+    "death": "Death",
+    "birth": "Birth",
+    "milkProduction": "Milk Production",
+    "falyaRecord": "Falya Record",
+    "illnessRecord": "Illness Record",
+    "wormVaccination": "Worm Vaccination",
+    "laboratory": "Laboratory",
+    "vaccination": "Vaccination",
+    "breeding": "Breeding"
   },
   "profile": {
     "name": "Name",

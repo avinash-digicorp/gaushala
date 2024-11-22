@@ -1,15 +1,28 @@
 import {
+  BirthIcon,
+  BreedingIcon,
   CopyIcon,
   CrossIcon,
   CrossIcon2,
+  DeathIcon,
   EmojiIcon,
+  FalyaRecordIcon,
+  GridIcon,
+  GridIcon2,
+  IllnessRecordIcon,
+  LaboratoryIcon,
   LeftIcon,
+  LivestockIcon,
   LocationIcon,
   LocationIcon2,
+  MilkProductionIcon,
+  NandiServiceIcon,
   PhoneIcon,
   RightIcon,
   RightIcon2,
   SentIcon,
+  VaccinationIcon,
+  WormVaccinationIcon,
 } from 'assets/svgs';
 import {DemoIcon, Icon1, Icon2} from 'assets/svgs/demo';
 
@@ -28,4 +41,21 @@ export const ASSET_SVGS = {
   location_2: LocationIcon2,
   cross: CrossIcon,
   cross_2: CrossIcon2,
+
+  grid: GridIcon,
+  grid_2: GridIcon2,
+
+  nandiService: NandiServiceIcon,
+  livestock: LivestockIcon,
+  death: DeathIcon,
+  birth: BirthIcon,
+  milkProduction: MilkProductionIcon,
+  falyaRecord: FalyaRecordIcon,
+  illnessRecord: IllnessRecordIcon,
+  wormVaccination: WormVaccinationIcon,
+  laboratory: LaboratoryIcon,
+  vaccination: VaccinationIcon,
+  breeding: BreedingIcon,
 };
+
+export type svgType = keyof typeof ASSET_SVGS;
