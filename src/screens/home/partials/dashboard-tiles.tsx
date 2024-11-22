@@ -17,7 +17,7 @@ export default (props: DashboardTilesProps) => {
   return (
     <View style={[styles.wrapper, isColumn && styles.columnWrapper]}>
       {dashboardItems?.map?.((item, index) => {
-        const onPress = () => navigateTo(routes.FORM, item);
+        const onPress = () => navigateTo(item?.formRoute, item);
         return (
           <AnimatedButton
             onPress={onPress}

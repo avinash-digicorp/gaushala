@@ -19,6 +19,7 @@ import {AddTodo} from 'screens/add-todo';
 import ChatList from 'screens/chat-list';
 import LanguageList from 'screens/language-list';
 import {Share} from 'screens/share';
+import {NandiServiceForm} from 'screens/nandi-service-form';
 
 const TabStack = AnimatedTabBarNavigator();
 const Stack = createNativeStackNavigator();
@@ -102,25 +103,14 @@ export const BottomTabNavigator = (
       }}
       component={Share}
     />
+    <Stack.Screen
+      name={routes.NANDI_SERVICE_FORM}
+      options={{
+        animation: 'fade',
+        animationDuration: 300,
+        animationTypeForReplace: 'push',
+      }}
+      component={NandiServiceForm}
+    />
   </Stack.Group>
 );
-
-const opacityTransition: object = {
-  gestureDirection: 'horizontal', // we will swipe right if we want to close the screen;
-  transitionSpec: {
-    open: {
-      animation: 'timing',
-    },
-    close: {
-      animation: 'timing',
-      config: {
-        duration: 3000,
-      },
-    },
-  },
-  cardStyleInterpolator: ({current}: {current: {progress: number}}) => ({
-    cardStyle: {
-      opacity: current.progress,
-    },
-  }),
-};
