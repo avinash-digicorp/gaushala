@@ -15,3 +15,4 @@ export * from './scrollview';
 export * from './expandable-view';
 export * from './keyboard-aware-view';
 export * from './tab-switch';
+export * from './screen';

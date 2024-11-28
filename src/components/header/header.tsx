@@ -12,6 +12,7 @@ import {
 import {StyleSheet} from 'react-native';
 import {hasTextLength, isFunctionExist} from 'utils';
 import {cn} from 'theme';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 interface HeaderProps {
   title?: ITextProps['tx'];
@@ -41,9 +42,9 @@ export const Header = (props: HeaderProps) => {
   return (
     <Animated.View
       entering={FadeInUp.delay(100)}
-      style={styles.container}
+      // style={styles.container}
       className={cn([
-        'w-full pb-4 flex-row items-center justify-between',
+        'w-full px-4 pb-4 flex-row items-center justify-between',
         containerClassName,
       ])}>
       <ButtonView style={styles.iconSpace} onPress={onLeftPressHandler}>
@@ -72,7 +73,7 @@ export const Title = (props: Partial<HeaderProps>) => (
       hide={!hasTextLength(props?.title)}
       tx={props?.title}
       className={cn([
-        'text-center font-medium text-gray-900 text-lg',
+        'text-center font-semi-bold text-gray-900 text-lg',
         props.titleClassName,
       ])}
     />

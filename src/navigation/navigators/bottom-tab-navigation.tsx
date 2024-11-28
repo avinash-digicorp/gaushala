@@ -19,7 +19,7 @@ import {AddTodo} from 'screens/add-todo';
 import ChatList from 'screens/chat-list';
 import LanguageList from 'screens/language-list';
 import {Share} from 'screens/share';
-import {NandiServiceForm} from 'screens/nandi-service-form';
+import {NandiServiceForm} from 'screens/forms/nandi-service-form';
 
 const TabStack = AnimatedTabBarNavigator();
 const Stack = createNativeStackNavigator();
@@ -106,7 +106,7 @@ export const BottomTabNavigator = (
     <Stack.Screen
       name={routes.NANDI_SERVICE_FORM}
       options={{
-        animation: 'fade',
+        animation: 'ios_from_right',
         animationDuration: 300,
         animationTypeForReplace: 'push',
       }}

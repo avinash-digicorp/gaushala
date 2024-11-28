@@ -19,8 +19,7 @@ export default () => {
       <BlurView
         style={[StyleSheet.absoluteFill, isAndroid && styles.blur]}
         blurType="light"
-        blurAmount={3}
-        blurRadius={3}
+        blurRadius={20}
       />
       <View className="min-h-full" style={styles.container}>
         <StatusBar backgroundColor={'transparent'} barStyle={'dark-content'} />

@@ -41,7 +41,7 @@ export default (props: DashboardTilesProps) => {
             <Animated.View layout={LinearTransition}>
               <Text
                 className={cn([
-                  'font-medium text-center text-white',
+                  'font-medium text-center text-gray-900',
                   !isColumn && 'ml-2',
                 ])}
                 tx={`home.${item.value}` as LocalizationKeys}
