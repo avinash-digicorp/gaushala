@@ -22,6 +22,7 @@ import {fonts} from 'utils/fonts';
 import {goBack} from 'navigation';
 import {SCREEN_WIDTH} from 'utils';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {svgType} from 'components/asset-svg/svg-icons';
 const width = SCREEN_WIDTH * 0.9;
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 const AnimatedScrollView = Animated.createAnimatedComponent(
@@ -32,7 +33,7 @@ const posterSize = 200;
 const headerTop = 44 - 16;
 
 const CompactHeader = (props: ScreenProps) => {
-  const {sv, header, rightIcon, showBack} = props;
+  const {sv, header, rightIcon, leftIcon, showBack} = props;
   const inset = useSafeAreaInsets();
   const opacityRange = [0, 1];
   const opacityAnim = useAnimatedStyle(() => {
@@ -54,7 +55,7 @@ const CompactHeader = (props: ScreenProps) => {
         style={styles.topLeftIcon}
         show={showBack}
         onPress={onLeftPress}>
-        <AssetSvg name="left_arrow" />
+        <AssetSvg name={leftIcon} />
       </ButtonView>
       <Text style={styles.compactHeaderTitle}>{header}</Text>
       <ButtonView style={styles.topRightIcon} onPress={props?.onRightPress}>
@@ -65,7 +66,7 @@ const CompactHeader = (props: ScreenProps) => {
 };
 
 const ExpandedHeader = (props: ScreenProps) => {
-  const {sv, header, rightIcon, showBack} = props;
+  const {sv, header, rightIcon, leftIcon, showBack} = props;
   const inset = useSafeAreaInsets();
   const paddingTop = inset.top === 0 ? 15 : inset.top;
   const layoutY = useSharedValue(0);
@@ -147,7 +148,7 @@ const ExpandedHeader = (props: ScreenProps) => {
           style={styles.topLeftIcon}
           show={showBack}
           onPress={onLeftPress}>
-          <AssetSvg name="left_arrow" />
+          <AssetSvg name={leftIcon} />
         </ButtonView>
         <ButtonView style={styles.topRightIcon} onPress={props?.onRightPress}>
           <AssetSvg name={rightIcon} />
@@ -162,7 +163,8 @@ interface ScreenProps extends ViewProps {
   showBack?: boolean;
   onLeftPress?: () => void;
   onRightPress?: () => void;
-  rightIcon?: string;
+  rightIcon?: svgType;
+  leftIcon?: svgType;
   sv?: SharedValue<number>;
 }
 
@@ -183,14 +185,14 @@ export const Screen = (props: ScreenProps) => {
         <AnimatedScrollView
           onScroll={scrollHandler}
           scrollEventThrottle={16}
-          style={styles.flex1}
+          style={[styles.flex1, {zIndex: 999}]}
           showsVerticalScrollIndicator={false}>
           <Animated.View style={styles.wrapper}>
+            <ExpandedHeader {...props} sv={sv} />
             {props?.children}
           </Animated.View>
         </AnimatedScrollView>
       </Animated.View>
-      <ExpandedHeader {...props} sv={sv} />
     </Animated.View>
   );
 };
@@ -206,7 +208,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  topLeftIcon: {width: width * 0.1, minWidth: width * 0.1, zIndex: 999},
+  topLeftIcon: {width: width * 0.1, minWidth: width * 0.1, zIndex: 10},
   topRightIcon: {
     width: width * 0.1,
     minWidth: width * 0.1,
@@ -277,7 +279,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const defaultProps = {header: '', showBack: true};
+const defaultProps = {header: '', showBack: true, leftIcon: 'left_arrow'};
 Screen.defaultProps = defaultProps;
 ExpandedHeader.defaultProps = defaultProps;
 CompactHeader.defaultProps = defaultProps;

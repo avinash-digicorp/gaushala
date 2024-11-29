@@ -9,6 +9,8 @@ export * from './sent-icon';
 export * from './phone-icon';
 export * from './grid-icons';
 export * from './check-icon';
+export * from './clock-icon';
+export * from './menu-icon';
 
 export * from './nandi-service-icon.tsx';
 export * from './livestock-icon.tsx';

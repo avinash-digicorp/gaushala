@@ -8,6 +8,7 @@ import weather from './weather-lottie.json';
 import crown from './crown-lottie.json';
 import rightArrow from './right-arrow-lottie.json';
 import qrBg from './qr-bg-lottie.json';
+import plus from './plus-lottie.json';
 
 export const ANIMATED_ICONS = {
   lineLoading,
@@ -20,6 +21,7 @@ export const ANIMATED_ICONS = {
   crown,
   rightArrow,
   qrBg,
+  plus,
 };
 
 export type AnimatedIconType = keyof typeof ANIMATED_ICONS;
