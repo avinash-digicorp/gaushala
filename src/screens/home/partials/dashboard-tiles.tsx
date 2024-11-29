@@ -5,19 +5,21 @@ import {AssetSvg, Text} from 'components';
 import {LocalizationKeys} from 'locales/use-translation';
 import colors, {cn} from 'theme';
 import {BlurView} from '@react-native-community/blur';
-import {navigateTo, routes} from 'navigation';
+import {navigateTo} from 'navigation';
 
 const AnimatedButton = Animated.createAnimatedComponent(Pressable);
 interface DashboardTilesProps {
   isColumn: boolean;
   dashboardItems: any[];
+  counts: any;
 }
 export default (props: DashboardTilesProps) => {
-  const {isColumn, dashboardItems} = props;
+  const {isColumn, counts, dashboardItems} = props;
   return (
     <View style={[styles.wrapper, isColumn && styles.columnWrapper]}>
       {dashboardItems?.map?.((item, index) => {
         const onPress = () => navigateTo(item?.formRoute, item);
+        const count = counts?.[item?.value];
         return (
           <AnimatedButton
             onPress={onPress}
@@ -47,6 +49,17 @@ export default (props: DashboardTilesProps) => {
                 tx={`home.${item.value}` as LocalizationKeys}
               />
             </Animated.View>
+            {count && (
+              <Animated.View
+                style={styles.shadow}
+                className="absolute items-center justify-center rounded-md"
+                layout={LinearTransition}>
+                <Text
+                  className={cn(['font-semibold text-center text-gray-100'])}
+                  text={count}
+                />
+              </Animated.View>
+            )}
           </AnimatedButton>
         );
       })}
@@ -55,6 +68,15 @@ export default (props: DashboardTilesProps) => {
 };
 
 const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: colors.black,
+    shadowOpacity: 0.8,
+    shadowRadius: 7,
+    shadowOffset: {width: 0, height: 0},
+    elevation: 15,
+    top: 5,
+    right: 5,
+  },
   wrapper: {
     flexWrap: 'wrap',
     gap: 15,

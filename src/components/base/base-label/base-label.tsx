@@ -1,6 +1,6 @@
 import React from 'react';
-import {hasTextLength, isFunctionExist} from 'utils/condition';
-import {AssetSvg, ButtonView, Text} from 'components';
+import {hasTextLength} from 'utils/condition';
+import {Text} from 'components';
 import {IProps} from './type.d';
 import {cn} from 'theme';
 import {View} from 'react-native';
@@ -11,17 +11,13 @@ export const BaseLabel = (props: IProps) => {
   if (!show) return <React.Fragment />;
 
   return (
-    <View className={cn(['flex-row mb-2', props?.className])}>
+    <View className={cn(['flex-row mb-2', props?.class])}>
       <Text
         show={hasTextLength(label)}
         text={label}
         {...(withTranslation && {tx: label})}
         {...(!withTranslation && {text: label})}
-        className={cn([
-          'size-sm',
-          props?.['label-class'],
-          error && 'text-red-800',
-        ])}
+        className={cn([props?.['label-class'], error && ''])}
       />
     </View>
   );

@@ -2,6 +2,7 @@ import {TextProps} from 'react-native';
 
 export interface IProps extends TextProps {
   'label-class'?: string;
+  class?: string;
 
   /**
    * If true the user won't be able to press.

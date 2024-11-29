@@ -29,7 +29,7 @@
     "nandi_name_or_number": "Nandi Name / Number",
     "nandi_body_color_and_identification": "Nandi Body Color and Identification",
     "service_given_date": "Service Given Date",
-    "gaat_name_or_number": "Gaat Name / Number",
+    "gaay_name_or_number": "Gaay Name / Number",
     "cow_identification_marks": "Cow Identification Marks",
     "calf_gender": "Calf Gender",
     "calf_body_color_and_identification": "Calf Body Color and Identification"
@@ -46,10 +46,14 @@
     "logout": "Logout",
     "login": "Login",
     "cancel": "Cancel",
+    "submit": "Submit",
     "whether_for_trip": "Check Whether For Trip"
   },
   "weather": {
     "high": "High",
     "low": "Low"
+  },
+  "validation": {
+    "required": "This field is required"
   }
 }

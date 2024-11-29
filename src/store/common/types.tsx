@@ -12,4 +12,5 @@ export interface IInitialCommonStateProps {
   unit: 'metric' | 'imperial';
   fetchingWeather: boolean;
   todo: any[];
+  nandi_service: any[];
 }

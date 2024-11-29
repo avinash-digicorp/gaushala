@@ -21,7 +21,7 @@ import {
   PlaceholderProps,
   AnimatedInputProps,
 } from './prop-types';
-import {AssetSvg} from 'components/';
+import {AssetSvg, Text} from 'components/';
 import colors from 'theme';
 import {fonts} from 'utils/fonts';
 
@@ -31,20 +31,21 @@ export const BaseInput = (props: AnimatedInputProps, ref) => {
     activeborderColor,
     deleteIconColor,
     style,
-    containerStyle,
+    error,
     defaultValue,
     onChangeText,
     onFocus,
     onBlur,
+    value,
   } = props;
-  const [text, setText] = useState(defaultValue ?? '');
+  const [text, setText] = useState(defaultValue ?? value ?? '');
   const [isFocused, setIsFocused] = useState(false);
 
   const inputRef = ref ?? useRef<TextInput>(null);
-
+  const border = isFocused ? activeborderColor : borderColor;
   const styles = {
-    container: {
-      borderColor: isFocused ? activeborderColor : borderColor,
+    wrapper: {
+      borderColor: error ? '#991b1b' : border,
       borderWidth: 1,
       height: 48,
       fontSize: 16,
@@ -52,8 +53,10 @@ export const BaseInput = (props: AnimatedInputProps, ref) => {
       flexDirection: 'row',
       alignItems: 'center',
       paddingLeft: 10,
+    } as ViewStyle,
+    container: {
       marginBottom: 15,
-      ...containerStyle,
+      paddingHorizontal: 15,
     } as ViewStyle,
     textInput: {
       fontFamily: fonts.regular,
@@ -100,26 +103,34 @@ export const BaseInput = (props: AnimatedInputProps, ref) => {
   return (
     <TouchableWithoutFeedback onPress={focusInput}>
       <View style={styles.container}>
-        <TextInput
-          {...props}
-          placeholder=""
-          style={[styles.textInput, style]}
-          ref={inputRef}
-          value={text}
-          onChangeText={handleChangeText}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        />
-        <DeleteButton
-          {...{
-            handlePressDelete,
-            deleteIconColor,
-            deleteButtonAnimationProgress,
-          }}
-        />
-        <Placeholder
-          placeholderAnimationProgress={placeholderAnimationProgress}
-          {...props}
+        <View style={styles.wrapper}>
+          <TextInput
+            {...props}
+            placeholder=""
+            style={[styles.textInput, style]}
+            ref={inputRef}
+            value={text}
+            onChangeText={handleChangeText}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          <DeleteButton
+            {...{
+              handlePressDelete,
+              deleteIconColor,
+              deleteButtonAnimationProgress,
+            }}
+          />
+          <Placeholder
+            placeholderAnimationProgress={placeholderAnimationProgress}
+            {...props}
+            error={error}
+          />
+        </View>
+        <Text
+          hide={!error}
+          className={'text-red-800 mt-1 text-xs'}
+          text={error}
         />
       </View>
     </TouchableWithoutFeedback>
@@ -156,6 +167,7 @@ const DeleteButton = ({
 
 const Placeholder = ({
   placeholder,
+  error,
   placeholderTextStyle,
   placeholderAnimationProgress,
   backgroundColor,
@@ -187,13 +199,15 @@ const Placeholder = ({
         {translateX: 15},
       ],
     })),
-    placeholderStyle: useAnimatedStyle(() => ({
-      fontFamily: fonts.regular,
+    placeholderColor: useAnimatedStyle(() => ({
       color: interpolateColor(
         placeholderAnimationProgress.value,
         [0, 1],
         [colors.gray4, colors.primary2],
       ),
+    })),
+    placeholderStyle: useAnimatedStyle(() => ({
+      fontFamily: fonts.regular,
       fontSize: interpolate(
         placeholderAnimationProgress.value,
         [0, 1],
@@ -201,13 +215,20 @@ const Placeholder = ({
       ),
       ...placeholderTextStyle,
     })),
+    errorText: {
+      color: '#991b1b',
+    },
   };
 
   return (
     <>
       {placeholder && placeholder !== '' ? (
         <Animated.View style={styles.placeholderContainerStyle}>
-          <Animated.Text style={styles.placeholderStyle}>
+          <Animated.Text
+            style={[
+              styles.placeholderStyle,
+              error ? styles.errorText : styles.placeholderColor,
+            ]}>
             {placeholder}
           </Animated.Text>
         </Animated.View>

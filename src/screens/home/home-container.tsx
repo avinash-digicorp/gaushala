@@ -6,9 +6,12 @@ import {DashboardItemProps} from 'store/common/types';
 
 export const useHomeContainer = (): IHomeProps => {
   const [loading, setLoading] = useState(false);
-  const {dashboardItems} = useSelector((state: RootState) => state.common);
+  const {nandi_service} = useSelector((state: RootState) => state.common);
+  const counts = {
+    nandi_service: nandi_service?.length,
+  };
 
-  const stats = {dashboardItems: DASHBOARD_ITEMS, loading};
+  const stats = {dashboardItems: DASHBOARD_ITEMS, counts, loading};
   const handlers = {};
   return {...stats, ...handlers};
 };

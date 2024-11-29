@@ -2,6 +2,8 @@ import {ColorValue, TextInputProps, TextStyle, ViewStyle} from 'react-native';
 import Animated from 'react-native-reanimated';
 
 export interface AnimatedInputProps extends TextInputProps {
+  error?: string;
+  label?: string;
   /**
    * The color of the background behind the text-input.
    *

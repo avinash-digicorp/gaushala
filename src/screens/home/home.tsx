@@ -9,7 +9,7 @@ import {isAndroid} from 'utils/helper';
 
 export default () => {
   const [gridType, setGridType] = useState<string>(gridTypes[0].value);
-  const {dashboardItems} = useHomeContainer();
+  const {dashboardItems, counts} = useHomeContainer();
   const isColumn = gridType === gridTypes[0].value;
   return (
     <ImageBackground
@@ -25,7 +25,11 @@ export default () => {
         <StatusBar backgroundColor={'transparent'} barStyle={'dark-content'} />
         <TabSwitch items={gridTypes} value={gridType} setValue={setGridType} />
         <ScrollView>
-          <DashboardTiles isColumn={isColumn} dashboardItems={dashboardItems} />
+          <DashboardTiles
+            counts={counts}
+            isColumn={isColumn}
+            dashboardItems={dashboardItems}
+          />
         </ScrollView>
       </View>
     </ImageBackground>

@@ -1,4 +1,5 @@
 import {routes} from 'navigation';
+import t from 'locales/use-translation';
 
 export const DASHBOARD_ITEMS = [
   {
@@ -78,4 +79,11 @@ export const DASHBOARD_ITEMS = [
     value: 'breeding',
     count: 14,
   },
+];
+
+export const GenderData = [
+  {id: 1, value: 'male', name: t('cow_gender.male')},
+  {id: 1, value: 'female', name: t('cow_gender.female')},
+  {id: 1, value: 'calf_male', name: t('cow_gender.calf_male')},
+  {id: 1, value: 'calf_female', name: t('cow_gender.calf_female')},
 ];

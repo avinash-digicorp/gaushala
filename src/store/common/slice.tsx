@@ -17,6 +17,7 @@ const initialState: IInitialCommonStateProps = {
   unit: 'metric',
   todo: [],
   dashboardItems: DASHBOARD_ITEMS,
+  nandi_service: [],
 };
 
 export const searchLocation = createAsyncThunk(
@@ -74,6 +75,22 @@ export const commonSlice = createSlice({
     setUnit: (state, action: PayloadAction<'metric' | 'imperial'>) => {
       state.unit = action.payload;
     },
+    addNandiService: (state, action) => {
+      state.nandi_service = [...(state?.nandi_service ?? []), action.payload];
+    },
+    removeNandiService: (state, action) => {
+      state.nandi_service = state.nandi_service.filter(
+        i => i.id !== action.payload,
+      );
+    },
+    updateNandiService: (state, action) => {
+      state.nandi_service = state.nandi_service.map(i => {
+        if (i.id === action.payload.id) {
+          return action.payload;
+        }
+        return i;
+      });
+    },
     addTodo: (state, action) => {
       try {
         if (hasLength(JSON.parse(action?.payload))) {
@@ -116,6 +133,13 @@ export const commonSlice = createSlice({
   },
 });
 
-export const {addTodo, completeTodo, deleteTodo} = commonSlice.actions;
+export const {
+  addTodo,
+  completeTodo,
+  deleteTodo,
+  addNandiService,
+  removeNandiService,
+  updateNandiService,
+} = commonSlice.actions;
 
 export default commonSlice.reducer;

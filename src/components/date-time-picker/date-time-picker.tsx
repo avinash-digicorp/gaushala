@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {ButtonView, Text} from 'components';
-import {View} from 'react-native';
+import {BaseLabel, ButtonView, Text} from 'components';
+import {StyleSheet, View} from 'react-native';
 import Picker from '@react-native-community/datetimepicker';
 import {isIosPlatform} from 'utils';
 import moment from 'moment';
@@ -10,14 +10,15 @@ import {LocalizationKeys} from 'locales/use-translation';
 
 interface IDateTimePickerProps {
   mode?: 'date' | 'time';
+  placeholder?: string;
   date: DateType;
-  onChange: (selectedDate: DateType) => void;
-  label: LocalizationKeys;
+  onChange: (selectedDate: DateType | any) => void;
+  label: LocalizationKeys | string;
 }
 
 export const DateTimePicker = (props: IDateTimePickerProps) => {
   const ref = React.createRef<any>();
-  const {mode, label, date, onChange} = props;
+  const {mode, date, onChange} = props;
   const [show, setShow] = useState<boolean>(false);
 
   const onChangeValue = (event: any, selectedDate: any) => {
@@ -34,8 +35,10 @@ export const DateTimePicker = (props: IDateTimePickerProps) => {
       ? moment(date).format('HH:mm A')
       : moment(date).format('DD MMM YYYY');
   return (
-    <View className="items-center justify-between w-full mb-14 flex-row">
-      <Text className="text-center text-gray-700 text-lg mb-1" tx={label} />
+    <View
+      className="items-center justify-between w-full flex-row"
+      style={styles.container}>
+      <BaseLabel {...props} class="mb-0" />
       <ButtonView
         hide={isIosPlatform}
         onPress={() => setShow(true)}
@@ -58,6 +61,12 @@ export const DateTimePicker = (props: IDateTimePickerProps) => {
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 15,
+    paddingHorizontal: 15,
+  },
+});
 DateTimePicker.defaultProps = {
   mode: 'date',
   date: moment(),

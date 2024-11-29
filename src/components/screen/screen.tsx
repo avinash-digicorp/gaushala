@@ -34,10 +34,7 @@ const headerTop = 44 - 16;
 const CompactHeader = (props: ScreenProps) => {
   const {sv, header, rightIcon, showBack} = props;
   const inset = useSafeAreaInsets();
-  const opacityRange = [
-    ((posterSize - (headerTop + inset.top)) / 4) * 3,
-    posterSize - (headerTop + inset.top) + 1,
-  ];
+  const opacityRange = [0, 1];
   const opacityAnim = useAnimatedStyle(() => {
     return {
       opacity: interpolate(sv.value, opacityRange, [0, 1]),
@@ -188,7 +185,6 @@ export const Screen = (props: ScreenProps) => {
           onScroll={scrollHandler}
           scrollEventThrottle={16}
           style={styles.flex1}
-          extraScrollHeight={30}
           showsVerticalScrollIndicator={false}>
           <Animated.View style={styles.wrapper}>
             {props?.children}

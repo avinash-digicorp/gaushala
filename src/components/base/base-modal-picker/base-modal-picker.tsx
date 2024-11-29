@@ -12,7 +12,7 @@ import {BlurView} from '@react-native-community/blur';
 import {NAVBAR_HEIGHT} from 'utils';
 
 export const BaseModalPicker = (props: BaseModalPickerProps) => {
-  const {data, value, setValue} = props;
+  const {data, value, onChange} = props;
   const bottomSheetRef = useRef<BottomSheet>(null);
   const dismissModal = () => bottomSheetRef.current?.close?.();
   const openModal = () => bottomSheetRef.current?.expand?.();
@@ -45,9 +45,9 @@ export const BaseModalPicker = (props: BaseModalPickerProps) => {
                 <View className="my-1 w-full border-b border-gray-200" />
               )}
               renderItem={({item, index}) => {
-                const isSelected = item?.value === value?.value;
+                const isSelected = item?.value === value;
                 const onSelect = () => {
-                  setValue?.(item);
+                  onChange?.(item?.value);
                   dismissModal();
                 };
                 return (

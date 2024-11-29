@@ -1,14 +1,17 @@
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {BaseModalPickerProps} from '../types';
 import {BaseLabel, ButtonView, Text} from 'components';
 import {cn} from 'theme';
+import {hasTextLength} from 'utils';
 
 export const ModalFieldView = (props: BaseModalPickerProps) => {
-  const {placeholder, value, disabled, error, openModal} = props;
-
+  const {placeholder, data, value, disabled, error, openModal} = props;
+  const textValue = data?.find(d => d.value === value)?.name;
   return (
-    <View className={cn(['px-4', disabled && 'opacity-70'])}>
+    <View
+      style={styles.container}
+      className={cn(['px-4', disabled && 'opacity-70'])}>
       <BaseLabel {...props} />
       <ButtonView
         onPress={openModal}
@@ -19,11 +22,11 @@ export const ModalFieldView = (props: BaseModalPickerProps) => {
         ])}>
         <Text
           className={cn([
-            'text-gray-800',
-            value && 'text-gray-500',
+            'text-gray-500',
+            hasTextLength(textValue) && 'text-gray-800',
             error && 'text-red-800',
           ])}
-          text={value ?? placeholder}
+          text={hasTextLength(textValue) ? textValue : placeholder}
         />
       </ButtonView>
 
@@ -35,3 +38,9 @@ export const ModalFieldView = (props: BaseModalPickerProps) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 15,
+  },
+});
