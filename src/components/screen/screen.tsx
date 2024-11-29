@@ -179,7 +179,6 @@ export const Screen = (props: ScreenProps) => {
   return (
     <Animated.View style={styles.flex1}>
       <CompactHeader {...props} sv={sv} />
-      <ExpandedHeader {...props} sv={sv} />
       <Animated.View style={styles.flex1}>
         <AnimatedScrollView
           onScroll={scrollHandler}
@@ -191,6 +190,7 @@ export const Screen = (props: ScreenProps) => {
           </Animated.View>
         </AnimatedScrollView>
       </Animated.View>
+      <ExpandedHeader {...props} sv={sv} />
     </Animated.View>
   );
 };
@@ -198,7 +198,7 @@ export const Screen = (props: ScreenProps) => {
 const styles = StyleSheet.create({
   wrapper: {paddingTop: posterSize, paddingBottom: 30},
   iconContainer: {
-    zIndex: 999,
+    zIndex: 10,
     position: 'absolute',
     width: '100%',
     paddingHorizontal: 16,
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  topLeftIcon: {width: width * 0.1, minWidth: width * 0.1},
+  topLeftIcon: {width: width * 0.1, minWidth: width * 0.1, zIndex: 999},
   topRightIcon: {
     width: width * 0.1,
     minWidth: width * 0.1,

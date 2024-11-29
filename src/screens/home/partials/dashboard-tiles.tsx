@@ -6,6 +6,7 @@ import {LocalizationKeys} from 'locales/use-translation';
 import colors, {cn} from 'theme';
 import {BlurView} from '@react-native-community/blur';
 import {navigateTo} from 'navigation';
+import {fonts} from 'utils/fonts';
 
 const AnimatedButton = Animated.createAnimatedComponent(Pressable);
 interface DashboardTilesProps {
@@ -18,7 +19,7 @@ export default (props: DashboardTilesProps) => {
   return (
     <View style={[styles.wrapper, isColumn && styles.columnWrapper]}>
       {dashboardItems?.map?.((item, index) => {
-        const onPress = () => navigateTo(item?.formRoute, item);
+        const onPress = () => navigateTo(item?.listRout, item);
         const count = counts?.[item?.value];
         return (
           <AnimatedButton
@@ -51,11 +52,12 @@ export default (props: DashboardTilesProps) => {
             </Animated.View>
             {count && (
               <Animated.View
-                style={styles.shadow}
+                style={styles.countContainer}
                 className="absolute items-center justify-center rounded-md"
                 layout={LinearTransition}>
                 <Text
-                  className={cn(['font-semibold text-center text-gray-100'])}
+                  style={styles.count}
+                  className={cn(['font-semibold text-center text-lg'])}
                   text={count}
                 />
               </Animated.View>
@@ -68,15 +70,8 @@ export default (props: DashboardTilesProps) => {
 };
 
 const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: colors.black,
-    shadowOpacity: 0.8,
-    shadowRadius: 7,
-    shadowOffset: {width: 0, height: 0},
-    elevation: 15,
-    top: 5,
-    right: 5,
-  },
+  count: {fontFamily: fonts.shadowBold},
+  countContainer: {top: 5, right: 5},
   wrapper: {
     flexWrap: 'wrap',
     gap: 15,
@@ -103,10 +98,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     height: 150,
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,

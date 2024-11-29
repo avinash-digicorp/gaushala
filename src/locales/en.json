@@ -1,6 +1,7 @@
 {
   "common": {},
   "header": {
+    "nandi_services": "Nandi Services",
     "home": "Home",
     "notification": "Notification",
     "profile": "Profile"

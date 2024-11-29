@@ -1,7 +1,6 @@
 import React from 'react';
 import Home from 'screens/home';
 import {routes} from 'navigation/navigation-routes';
-import Notifications from 'screens/notifications';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   AnimatedTabBarNavigator,
@@ -20,6 +19,8 @@ import ChatList from 'screens/chat-list';
 import LanguageList from 'screens/language-list';
 import {Share} from 'screens/share';
 import {NandiServiceForm} from 'screens/forms/nandi-service-form';
+import {NandiServices} from 'screens/lists/nandi-services';
+import {navigatorOptions} from 'navigation/navigation-action';
 
 const TabStack = AnimatedTabBarNavigator();
 const Stack = createNativeStackNavigator();
@@ -78,39 +79,28 @@ export const BottomTabNavigator = (
     <Stack.Screen name={routes.LANGUAGE_LIST} component={LanguageList} />
     <Stack.Screen
       name={routes.ADD_TODO}
-      options={{
-        animation: 'fade',
-        animationDuration: 300,
-        animationTypeForReplace: 'push',
-      }}
+      options={navigatorOptions}
       component={AddTodo}
     />
     <Stack.Screen
       name={routes.TODO}
-      options={{
-        animation: 'fade',
-        animationDuration: 300,
-        animationTypeForReplace: 'push',
-      }}
+      options={navigatorOptions}
       component={Todo}
     />
     <Stack.Screen
       name={routes.SHARE}
-      options={{
-        animation: 'fade',
-        animationDuration: 300,
-        animationTypeForReplace: 'push',
-      }}
+      options={navigatorOptions}
       component={Share}
     />
     <Stack.Screen
       name={routes.NANDI_SERVICE_FORM}
-      options={{
-        animation: 'ios_from_right',
-        animationDuration: 300,
-        animationTypeForReplace: 'push',
-      }}
+      options={navigatorOptions}
       component={NandiServiceForm}
+    />
+    <Stack.Screen
+      name={routes.NANDI_SERVICE_LIST}
+      options={navigatorOptions}
+      component={NandiServices}
     />
   </Stack.Group>
 );

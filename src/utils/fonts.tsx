@@ -7,4 +7,5 @@ export const fonts = {
   regular: 'Poppins-Regular',
   semiBold: 'Poppins-SemiBold',
   thin: 'Poppins-Thin',
+  shadowBold: 'LondrinaShadow-Regular',
 };
