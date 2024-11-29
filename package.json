@@ -15,6 +15,7 @@
     "fix-dependencies": "npx rnx-align-deps --write"
   },
   "dependencies": {
+    "@gorhom/bottom-sheet": "^5",
     "@mapbox/polyline": "^1.2.1",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-native-camera-roll/camera-roll": "^7.8.3",

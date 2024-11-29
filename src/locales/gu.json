@@ -6,17 +6,33 @@
     "profile": "Profile"
   },
   "home": {
-    "nandiService": "નંદી સેવા",
+    "nandi_service": "નંદી સેવા",
     "livestock": "પશુધન",
     "death": "મરણ",
     "birth": "જન્મ",
-    "milkProduction": "દૂધ ઉત્પાદન",
-    "falyaRecord": "ફળ્યા રેકોર્ડ",
-    "illnessRecord": "બીમાર રેકોર્ડ",
-    "wormVaccination": "કૃમિ ની રસી",
+    "milk_production": "દૂધ ઉત્પાદન",
+    "falya_record": "ફળ્યા રેકોર્ડ",
+    "illness_record": "બીમાર રેકોર્ડ",
+    "worm_vaccination": "કૃમિ ની રસી",
     "laboratory": "લેબોરેટરી",
     "vaccination": "રસીકરણ",
     "breeding": "વ્યાજન"
+  },
+  "cow_gender": {
+    "male": "પુરુષ",
+    "female": "મહિલા",
+    "calf_male": "બાળક પુરુષ",
+    "calf_female": "બાળક મહિલા"
+  },
+  "nandi_service": {
+    "number": "નંબર",
+    "nandi_name_or_number": "નંદીનું નામ / નંબર",
+    "nandi_body_color_and_identification": "નંદી ના શરીરનો રંગ અને ઓળખના ચિન્હો",
+    "service_given_date": "સેવા અપેલી તારીખ",
+    "gaat_name_or_number": "ગાટનું નામ / નંબર",
+    "cow_identification_marks": "ગાય ના ઓળખના ચિન્હો",
+    "calf_gender": "બાળકનું લિંગ",
+    "calf_body_color_and_identification": "બાળકના શરીરનો રંગ અને ઓળખના ચિન્હો"
   },
   "profile": {
     "name": "Name",

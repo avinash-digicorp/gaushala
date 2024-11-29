@@ -21,8 +21,12 @@ import colors from 'theme';
 import {fonts} from 'utils/fonts';
 import {goBack} from 'navigation';
 import {SCREEN_WIDTH} from 'utils';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 const width = SCREEN_WIDTH * 0.9;
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
+const AnimatedScrollView = Animated.createAnimatedComponent(
+  KeyboardAwareScrollView,
+);
 
 const posterSize = 200;
 const headerTop = 44 - 16;
@@ -180,15 +184,16 @@ export const Screen = (props: ScreenProps) => {
       <CompactHeader {...props} sv={sv} />
       <ExpandedHeader {...props} sv={sv} />
       <Animated.View style={styles.flex1}>
-        <Animated.ScrollView
+        <AnimatedScrollView
           onScroll={scrollHandler}
           scrollEventThrottle={16}
           style={styles.flex1}
+          extraScrollHeight={30}
           showsVerticalScrollIndicator={false}>
           <Animated.View style={styles.wrapper}>
             {props?.children}
           </Animated.View>
-        </Animated.ScrollView>
+        </AnimatedScrollView>
       </Animated.View>
     </Animated.View>
   );

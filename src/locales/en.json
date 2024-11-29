@@ -6,17 +6,33 @@
     "profile": "Profile"
   },
   "home": {
-    "nandiService": "Nandi Service",
+    "nandi_service": "Nandi Service",
     "livestock": "Livestock",
     "death": "Death",
     "birth": "Birth",
-    "milkProduction": "Milk Production",
-    "falyaRecord": "Falya Record",
-    "illnessRecord": "Illness Record",
-    "wormVaccination": "Worm Vaccination",
+    "milk_production": "Milk Production",
+    "falya_record": "Falya Record",
+    "illness_record": "Illness Record",
+    "worm_vaccination": "Worm Vaccination",
     "laboratory": "Laboratory",
     "vaccination": "Vaccination",
     "breeding": "Breeding"
+  },
+  "cow_gender": {
+    "male": "Male",
+    "female": "Female",
+    "calf_male": "Calf Male",
+    "calf_female": "Calf Female"
+  },
+  "nandi_service": {
+    "number": "Number",
+    "nandi_name_or_number": "Nandi Name / Number",
+    "nandi_body_color_and_identification": "Nandi Body Color and Identification",
+    "service_given_date": "Service Given Date",
+    "gaat_name_or_number": "Gaat Name / Number",
+    "cow_identification_marks": "Cow Identification Marks",
+    "calf_gender": "Calf Gender",
+    "calf_body_color_and_identification": "Calf Body Color and Identification"
   },
   "profile": {
     "name": "Name",
